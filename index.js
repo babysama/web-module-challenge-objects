@@ -1,5 +1,7 @@
 /*MAKE SURE TO RETURN ALL OF THE ANSWERS ON THESE TASKS, IF YOU DON'T, THE AUTOGRADER WILL NOT WORK*/
 
+const { arrayExpression } = require("@babel/types");
+
 /*When doing these tasks, we recommend using console.log to test the output of your code to make sure it works correctly.*/
 
 ///////////////Menu Items (MVP)///////////////////
@@ -15,9 +17,15 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category){
+    const showMenu = {
+      name,
+      price,
+      category
+    }
+    return showMenu
 }
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -28,6 +36,18 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+
+function newMenu(name, price, category){
+  let lunchMenu = createMenuItem(name, price, category);
+  console.log(lunchMenu)
+}
+
+newMenu("applerice", 30, "food");
+newMenu("frid banana", 35, "fruit");
+newMenu("coco coffee", 15, "drink");
+
+
+
 
 
 
@@ -49,6 +69,18 @@ const burger = {
   category: "Lunch", 
   
 }
+function discountFunc(str){
+  if(str === "teacher" || str === "student" ){
+    return burger.price * 0.75;
+  }else{
+    return burger.price * 0.9;
+  }
+}
+
+// console.log(discountFunc("public"));
+
+burger.discount = discountFunc;
+console.log(burger.discount());
 
 
 
@@ -61,13 +93,14 @@ const reviews = [
     {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." },
     {name: "Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."},
-    {name: "Reyna", rating: 3.5, feedback: ""},
+    {name: "Reyna", rating: 3.5, feedback: "this place is chill with really cool people, great for getting work done on weekdays"},
 ]
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
+console.log(reviews[5].feedback);
 
 
 
@@ -78,7 +111,7 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
-
+console.log(reviews[7].feedback);
 
 
 
@@ -91,9 +124,16 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(name, rating, feedback,){
+  const showReview = {
+    name,
+    rating,
+    feedback
+  }
+  return showReview;
 }
+ 
+ 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
